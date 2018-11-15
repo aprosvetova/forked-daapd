@@ -4669,15 +4669,11 @@ raop_device_cb(const char *name, const char *type, const char *domain, const cha
   if (rd->has_password)
     {
       DPRINTF(E_LOG, L_RAOP, "AirPlay device '%s' is password-protected\n", at_name);
-
+    }
       airplay = cfg_gettsec(cfg, "airplay", at_name);
       if (airplay)
 	password = cfg_getstr(airplay, "password");
-
-      if (!password)
-	DPRINTF(E_LOG, L_RAOP, "No password given in config for AirPlay device '%s'\n", at_name);
-    }
-
+	
   rd->password = password;
 
   /* Device verification */
